@@ -1,0 +1,81 @@
+@import "../../assets/scss/support";
+
+.top-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 99;
+}
+
+swiper {
+  height: 100vh;
+}
+
+.cells {
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+
+.cell {
+  display: flex;
+  padding: 20rpx;
+}
+.cell:not(:last-child) {
+  border-bottom: 1rpx solid #ebedf0;
+}
+.cell__hd {
+  font-size: 0;
+}
+.cell__hd image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 12rpx;
+}
+.cell__bd {
+  flex: 1;
+}
+.cell__bd .name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+  font-size: 28rpx;
+  margin-bottom: 12rpx;
+}
+.cell__bd .des {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+  color: #666666;
+  font-size: 12px;
+}
+.timeline-bd-inner-db{
+  justify-content: flex-start;
+}
+.timeline-bd-dhtime{
+  padding-left: 25px;
+  position: relative
+}
+.timeline-bd-fhtime{
+  padding-right: 25px;
+}
+.timeline-bd-fhtime text,.timeline-bd-dhtime text{
+  display:block
+}
+
+.timeline-bd-dhtime:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 3rpx solid $bgline;
+  z-index: 1;
+}

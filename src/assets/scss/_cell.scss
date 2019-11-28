@@ -1,0 +1,27 @@
+/**cell.wxss**/
+
+@import "support";
+
+.app-cells-title {
+  padding: 32rpx;
+}
+.app-cells-title-mini {
+  padding: 24rpx 32rpx;
+}
+.app-cells {
+  font-size: inherit;
+}
+.app-cells + .app-cells:before {
+  border-top: 1rpx solid transparent;
+}
+.app-cells .weui-cell {
+  padding: 12px 16px;
+}
+.app-cells .weui-cell.app-cell-select {
+  padding: 0 16px;
+}
+.app-cells .weui-cell.app-cell-select .weui-select {
+  height: 43px;
+  line-height: 43px;
+  padding-left: 0;
+}

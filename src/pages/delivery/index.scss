@@ -1,0 +1,40 @@
+/* pages/delivery/index.wxss */
+
+@import "../../assets/scss/support";
+
+.weui-search-bar {
+    background-color: $white;
+}
+.weui-search-bar__box,
+.weui-search-bar__label {
+    border-radius: 15px;
+    background-color: $bgcolor;
+    text-align: left !important;
+    padding-left: 10px;
+}
+.weui-icon-search_in-box {
+	left: 10px;
+	margin-right: 5px;
+	margin-top: -13px;
+	font-size: $font20;
+}
+.weui-search-bar__input {
+	padding-left: 25px;
+}
+.weui-icon-search {
+    margin-top: .32em;
+    margin-right: 5px;
+    font-size: $font20;
+}
+
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result .weui-cell__bd{
+    padding: 2px 0 2px 20px;
+    color: #666;
+}
+.searchbar-result:before{
+    display: none;
+}

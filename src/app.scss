@@ -1,0 +1,17 @@
+/**
+ * app.scss 入口文件
+ */
+
+@import "assets/scss/weui";
+@import "assets/scss/support";
+
+@import "assets/scss/common";
+@import "assets/scss/cell";
+@import "assets/scss/timeline";
+
+page {
+	background-color: $bgcolor;
+	font-size: $font14;
+	color: $graydarker;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+}

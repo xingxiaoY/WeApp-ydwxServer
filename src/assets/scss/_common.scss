@@ -1,0 +1,160 @@
+/**common.wxss**/
+
+@import "support";
+
+/*文字*/
+.text-blue {
+  color: $blue
+}
+.text-red {
+  color: $red
+}
+.text-reddark {
+  color: $reddark
+}
+.text-orange {
+  color: $orange
+}
+.text-green {
+  color: $green
+}
+.text-white {
+  color: $white
+}
+.text-black {
+  color: $black
+}
+.text-graydarker {
+  color: $graydarker
+}
+.text-graydark {
+  color: $graydark
+}
+.text-gray {
+  color: $gray
+}
+.text-graylight {
+  color: $graylight
+}
+.text-weight {
+  font-weight: bold
+}
+/*按钮*/
+.btn-blue {
+  background-color: $blue;
+  color: $white;
+}
+.btn-bluelight {
+  background-color: $bluelight;
+  color: $white;
+}
+.btn-red {
+  background-color: $red;
+  color: $white;
+}
+.btn-orange {
+  background-color: $orange;
+  color: $white;
+}
+.btn-green {
+  background-color: $green;
+  color: $white;
+}
+.btn-link {
+  background-color: transparent;
+}
+/*背景边线*/
+.bg-blue {
+  background-color: $blue;
+  color: $white;
+}
+.bg-bluelight {
+  background-color: $bluelight;
+  color: $white;
+}
+.bg-red {
+  background-color: $red;
+  color: $white;
+}
+.bg-orange {
+  background-color: $orange;
+  color: $white;
+}
+.bg-green {
+  background-color: $green;
+  color: $white;
+}
+.bg-white {
+  background-color: $white;
+}
+.bg-line {
+  background-color: $bgline;
+}
+/*文字&大小*/
+.text-center {
+  text-align: center
+}
+.text-left {
+  text-align: left
+}
+.text-right {
+  text-align: right
+}
+.text-f10 {
+  font-size: $font10
+}
+.text-f11 {
+  font-size: $font11
+}
+.text-f12 {
+  font-size: $font12 !important
+}
+.text-f13 {
+  font-size: $font13
+}
+.text-f14 {
+  font-size: $font14 !important
+}
+.text-f15 {
+  font-size: $font15
+}
+.text-f16 {
+  font-size: $font16
+}
+.text-f17 {
+  font-size: $font17
+}
+.text-f18 {
+  font-size: $font18
+}
+.text-f20 {
+  font-size: $font20
+}
+/*间距*/
+.mt-0 {
+  margin-top: 0;
+}
+.mt-5 {
+  margin-top: 10rpx;
+}
+.mt-10 {
+  margin-top: 20rpx;
+}
+.pd-0 {
+  padding: 0;
+}
+/*文字超出省略号*/
+.ellipsis-l1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.ellipsis-l2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

@@ -1,0 +1,35 @@
+@import "../../assets/scss/support";
+page{
+	background: $white;
+}
+.authorize{
+	text-align: center;
+	padding: 16rpx;
+	&-logo{
+		image{
+			width:116rpx;
+			height:116rpx;
+			border-radius: 50%;
+			box-shadow: 0 0 10px #ddd;
+			border:1px solid #ddd;
+			margin: 70rpx 0 30rpx 0;
+		}
+	}
+	.tips{
+		color: $gray;
+		text-align: left;
+		font-size: $font12;
+		padding:40rpx 40rpx 120rpx 40rpx;
+	}
+	.weui-btn_full{
+		width: auto;
+	}
+	.btn-default{
+		color: $graydark;
+		border: $bgline solid 1px;
+		background: $white;
+	}
+	.pass-login{
+		margin-top: 100rpx;
+	}
+}

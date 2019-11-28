@@ -1,0 +1,92 @@
+<view class="page">
+    <view class="page__bd">
+
+        <view class="app-cells-title bg-white text-weight text-black text-f16">中国移动成渝接入网二期工程</view>
+        <view class="weui-cells weui-cells_after-title app-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">订单编号</view>
+                </view>
+                <view class="weui-cell__bd text-black">2019266524556</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">订单时间</view>
+                </view>
+                <view class="weui-cell__bd text-black">2019-10-25 16:30:35</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">发货单号</view>
+                </view>
+                <view class="weui-cell__bd text-black">201919812731</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">收货单位</view>
+                </view>
+                <view class="weui-cell__bd text-black">洛阳移动迎合大道营业部</view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title app-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">物流公司</view>
+                </view>
+                <view class="weui-cell__bd text-black">宇鑫物流</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">联系人电话</view>
+                </view>
+                <view class="weui-cell__bd text-black">王小丫/0371-55655556</view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title app-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">收货地址</view>
+                </view>
+                <view class="weui-cell__bd text-black">洛阳市洛龙路121号</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label text-gray">收货人电话</view>
+                </view>
+                <view class="weui-cell__bd text-black">王小丫/0371-55655556</view>
+            </view>
+        </view>
+
+        <view class="app-cells-title-mini mt-0">发货明细</view>
+
+        <view class="weui-flex delivery-detail bg-white text-center">
+            <view class="weui-flex__item">
+                <view class="placeholder text-red text-weight text-f16">16815.00</view>
+                <view class="placeholder text-gray">收货总金额(元)</view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder text-weight text-f16">
+                    <text class="text-blue">60</text> / <text>100</text>
+                </view>
+                <view class="placeholder text-gray">收货数量</view>
+            </view>
+        </view>
+
+        <view class="delivery-goods bg-white">
+            <view class="weui-flex">
+                <view class="weui-flex__item">
+                    <view class="placeholder text-weight ellipsis-l1">光缆线头接头配件/管道用安装街头盒托接头盒光缆线头接头配件/管道用安装街头盒托接头盒</view>
+                </view>
+            </view>
+            <view class="weui-flex delivery-goods-info mt-5">
+                <view class="weui-flex__item">
+                    <view class="placeholder text-graydark">物料编号：XL28273726236</view>
+                    <view class="placeholder text-graydark">产品数量：10</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

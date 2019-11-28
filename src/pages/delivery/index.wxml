@@ -1,0 +1,194 @@
+<view class="page">
+    <view class="page__bd">
+
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="单号/关键词" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="20"></icon>
+                    <view class="weui-search-bar__text">单号/关键词</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+
+        <view class="timeline-header">
+            <view class="timeline-hd bg-line">
+                <text class='timeline-dot active'></text>
+                <text class="timeline-hd-time">2019-11-12 15:30</text>
+                <view class="timeline-hd-total">
+                    共 <text class="text-blue text-weight">2</text> 单
+                </view>
+            </view>
+        </view>
+        <view class="timeline">
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <view class="timeline-bd">
+                    <view class="timeline-bd-main timeline-bd-inline">
+                        <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                        <view class="timeline-bd-inner">
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">总金额(元)</text>
+                            </view>
+                            <view class="timeline-bd-total">
+                                <text class="text-blue text-weight text-f20">80</text>
+                                <text class="text-gray">总数量(箱)</text>
+                            </view>
+                            <view class="timeline-bd-btn-go">
+                                <button class="weui-btn btn-orange text-f14" size="mini">去发货</button>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <view class="weui-cell app-cell pd-0">
+                            <view class="weui-cell__bd">
+                                <text>订单编号：AP089235232937372</text>
+                                <text>当前办理：王晓燕</text>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <navigator url="/pages/delivery/detail" open-type="navigate" class="btn-link text-blue text-f14 text-weight btn-view" size="mini">详细</navigator>
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+            </view><!--timeline-item Loop End-->
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <view class="timeline-bd">
+                    <view class="timeline-bd-main timeline-bd-inline">
+                        <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                        <view class="timeline-bd-inner">
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">总金额(元)</text>
+                            </view>
+                            <view class="timeline-bd-total">
+                                <text class="text-blue text-weight text-f20">80</text>
+                                <text class="text-gray">总数量(箱)</text>
+                            </view>
+                            <view class="timeline-bd-btn-go">
+                                <button class="weui-btn btn-orange text-f14" size="mini">去发货</button>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <view class="weui-cell app-cell pd-0">
+                            <view class="weui-cell__bd">
+                                <text>订单编号：AP089235232937372</text>
+                                <text>当前办理：王晓燕</text>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <navigator url="/pages/delivery/detail" open-type="navigate" class="btn-link text-blue text-f14 text-weight btn-view" size="mini">详细</navigator>
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+            </view><!--timeline-item Loop End-->
+        </view>
+
+        <view class="timeline-header">
+            <view class="timeline-hd bg-line">
+                <text class='timeline-dot active'></text>
+                <text class="timeline-hd-time">2019-11-12 15:30</text>
+                <view class="timeline-hd-total">
+                    共 <text class="text-blue text-weight">2</text> 单
+                </view>
+            </view>
+        </view>
+        <view class="timeline">
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <view class="timeline-bd">
+                    <view class="timeline-bd-main timeline-bd-inline">
+                        <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                        <view class="timeline-bd-inner">
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">总金额(元)</text>
+                            </view>
+                            <view class="timeline-bd-total">
+                                <text class="text-blue text-weight text-f20">80</text>
+                                <text class="text-gray">总数量(箱)</text>
+                            </view>
+                            <view class="timeline-bd-btn-go">
+                                <button class="weui-btn btn-orange text-f14" size="mini">去发货</button>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <view class="weui-cell app-cell pd-0">
+                            <view class="weui-cell__bd">
+                                <text>订单编号：AP089235232937372</text>
+                                <text>当前办理：王晓燕</text>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <navigator url="/pages/delivery/detail" open-type="navigate" class="btn-link text-blue text-f14 text-weight btn-view" size="mini">详细</navigator>
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+            </view><!--timeline-item Loop End-->
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <view class="timeline-bd">
+                    <view class="timeline-bd-main timeline-bd-inline">
+                        <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                        <view class="timeline-bd-inner">
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">总金额(元)</text>
+                            </view>
+                            <view class="timeline-bd-total">
+                                <text class="text-blue text-weight text-f20">80</text>
+                                <text class="text-gray">总数量(箱)</text>
+                            </view>
+                            <view class="timeline-bd-btn-go">
+                                <button class="weui-btn btn-orange text-f14" size="mini">去发货</button>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <view class="weui-cell app-cell pd-0">
+                            <view class="weui-cell__bd">
+                                <text>订单编号：AP089235232937372</text>
+                                <text>当前办理：王晓燕</text>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <navigator url="/pages/delivery/detail" open-type="navigate" class="btn-link text-blue text-f14 text-weight btn-view" size="mini">详细</navigator>
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+            </view><!--timeline-item Loop End-->
+        </view>
+
+    </view>
+</view>

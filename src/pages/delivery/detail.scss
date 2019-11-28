@@ -1,0 +1,62 @@
+/* pages/delivery/detail.wxss */
+
+@import "../../assets/scss/support";
+
+.delivery-detail {
+    padding: 32rpx 0;
+}
+.delivery-detail .weui-flex__item {
+    position: relative;
+}
+.delivery-detail .weui-flex__item + .weui-flex__item:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px solid $bgline;
+    z-index: 1;
+}
+
+.delivery-goods {
+    margin: 32rpx;
+    padding: 20rpx;
+    border-radius: 20rpx;
+}
+.delivery-goods-info {
+    align-items: center
+}
+
+/*主容器*/
+.stepper {
+    width: 96px;
+    height: 26px;
+    border: 1px solid $bgborder;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+/*加号和减号*/
+.stepper text {
+    width: 22px;
+    line-height: 26px;
+    text-align: center;
+}
+/*数值*/
+.stepper input {
+    width: 50px;
+    height: 26px;
+    margin: 0 auto;
+    text-align: center;
+    border-left: 1px solid $bgborder;
+    border-right: 1px solid $bgborder;
+}
+/*普通样式*/
+.stepper .normal{
+    color: black;
+}
+/*禁用样式*/
+.stepper .disabled{
+    color: $bgborder;
+}

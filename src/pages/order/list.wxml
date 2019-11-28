@@ -1,0 +1,112 @@
+<view class="page">
+    <view class="page__bd">
+
+        <view class="timeline">
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <navigator url="" open-type="navigate" class="timeline-bd">
+                    <view class="timeline-bd-main">
+                        <view class="timeline-bd-left">
+                            <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">含税金额合计(元)</text>
+                            </view>
+                        </view>
+                        <view class="timeline-bd-right">
+                            <text class="text-blue text-weight text-f16">同步完成</text>
+                            <text class="text-f12 text-gray">待供应商再次确认</text>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <text>订单编号：AP089235232937372</text>
+                        <text>当前办理：王晓燕</text>
+                    </view>
+                </navigator>
+            </view><!--timeline-item Loop End-->
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <navigator url="" open-type="navigate" class="timeline-bd">
+                    <view class="timeline-bd-main">
+                        <view class="timeline-bd-left">
+                            <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">含税金额合计(元)</text>
+                            </view>
+                        </view>
+                        <view class="timeline-bd-right">
+                            <text class="text-blue text-weight text-f16">同步完成</text>
+                            <text class="text-f12 text-gray">待供应商再次确认</text>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <text>订单编号：AP089235232937372</text>
+                        <text>当前办理：王晓燕</text>
+                    </view>
+                </navigator>
+            </view><!--timeline-item Loop End-->
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <navigator url="" open-type="navigate" class="timeline-bd">
+                    <view class="timeline-bd-main">
+                        <view class="timeline-bd-left">
+                            <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">含税金额合计(元)</text>
+                            </view>
+                        </view>
+                        <view class="timeline-bd-right">
+                            <text class="text-blue text-weight text-f16">同步完成</text>
+                            <text class="text-f12 text-gray">待供应商再次确认</text>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <text>订单编号：AP089235232937372</text>
+                        <text>当前办理：王晓燕</text>
+                    </view>
+                </navigator>
+            </view><!--timeline-item Loop End-->
+            <!--timeline-item Loop-->
+            <view class="timeline-item">
+                <view class="timeline-hd">
+                    <text class='timeline-dot'></text>
+                    <text class="timeline-hd-time">2019-11-12 15:30</text>
+                </view>
+                <navigator url="" open-type="navigate" class="timeline-bd">
+                    <view class="timeline-bd-main">
+                        <view class="timeline-bd-left">
+                            <view class="timeline-bd-name text-weight text-f16">中国移动成渝接入网二期工程</view>
+                            <view class="timeline-bd-price">
+                                <text class="text-red text-weight text-f20">31860.00</text>
+                                <text class="text-gray">含税金额合计(元)</text>
+                            </view>
+                        </view>
+                        <view class="timeline-bd-right">
+                            <text class="text-blue text-weight text-f16">同步完成</text>
+                            <text class="text-f12 text-gray">待供应商再次确认</text>
+                        </view>
+                    </view>
+                    <view class="timeline-bd-info text-graydark">
+                        <text>订单编号：AP089235232937372</text>
+                        <text>当前办理：王晓燕</text>
+                    </view>
+                </navigator>
+            </view><!--timeline-item Loop End-->
+        </view>
+
+    </view>
+</view>

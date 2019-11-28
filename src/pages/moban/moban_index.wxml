@@ -1,0 +1,14 @@
+
+<!--home_index_navs-->
+<template name="index_index_navs_tmpl">
+  <block wx:for="{{navs}}" wx:key="item.id">
+    <view class="list-enter" catchtap="go" data-type="{{item.text}}">
+      
+      <navigator url="{{item.url}}">
+        <image src="{{item.image}}" class="slide-image"/>
+        <text class="list-tit">{{item.text}}</text>
+      </navigator>
+    </view>
+  </block>
+</template>
+

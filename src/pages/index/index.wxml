@@ -1,0 +1,39 @@
+<!--pages-moban-->
+<view class="page">
+	<import src="../moban/moban_index.wxml"/>
+	<!--pages/home/index.wxml-->
+	<view class="home-dind">
+		<navigator url="">
+			<image src="/image/home/home-1.jpg" class="imgs"></image>
+		</navigator>
+	</view>
+	<view class="index-nav">
+		<template is="index_index_navs_tmpl" data="{{...index_index_navs_tmpl}}"/>
+	</view>
+
+	<view class="section index-db-box">
+		<navigator url="/pages/order/index">
+			<image src="/image/home/home-pic1.png" class="bg-img"></image>
+			<view class="index-db-txt">
+				<b>当前待办<text class="db-num">2</text>个</b>
+			</view>
+		</navigator>
+	</view>
+	<!-- 质量投诉 -->
+
+	<view class="section home-zlts-box">
+		<view class="home-zlts-tit">
+			<image src="/image/home/home-2.jpg" class="titimg"></image>
+		</view>
+		<view class="home-zlts-cont">
+			<block wx:for="{{zlts}}" wx:key="item">
+				<view class="home-zlts-list">
+					<image src="{{item.img}}"></image>
+					<view class="tit">{{item.title}}</view>
+					<view class="sect"><text>投诉{{item.tsnum}}</text><text class="line">|</text><text>未读{{item.wdnum}}</text></view>
+					<navigator class="home-zlts-btn" url=""><text class="btn btn-bluelight">进入</text></navigator>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>

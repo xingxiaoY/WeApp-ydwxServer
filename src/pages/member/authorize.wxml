@@ -1,0 +1,28 @@
+<view class="page bg-white">
+	<view wx:if="{{isHide}}">
+		<view wx:if="{{canIUse}}" class="authorize">
+			<view class='authorize-logo'>
+				<image src='/image/logo.jpg'></image>
+				<view class="text-black text-f16">江苏移动供应链协同</view>
+			</view>
+			<view class='tips'>
+				您暂未授权江苏移动供应商协同微门户小程序获取你的信息，降无法正常使用小程序的功能，如需要正常使用，请点击“授权按钮”
+			</view>
+
+			<button class='weui-btn weui-btn_full' type='primary' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+			<button class='weui-btn weui-btn_full btn-default' type='default'>取消</button>
+		</view>
+		<view wx:else>请升级微信版本</view>
+	</view>
+
+	<view wx:else class="authorize">
+
+		<view class='authorize-logo'>
+			<image src='/image/logo.jpg'></image>
+			<view class="text-black text-f16">江苏移动供应链协同</view>
+		</view>
+		<button class='weui-btn weui-btn_full pass-login' type='primary'><navigator url="login">账号密码登录</navigator></button>
+
+		<view class='tips'>点击“账号密码登录”即表示您同意《江苏移动供应商协同微门户》服务条款</view>
+	</view>
+</view>

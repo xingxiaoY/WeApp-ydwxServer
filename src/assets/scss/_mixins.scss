@@ -1,0 +1,413 @@
+/**
+ * Sass Minxins
+ * 调用方式：@include setTapColor();
+ */
+
+// 移动端按下样式
+@mixin setTapColor($c:rgba(0,0,0,0)) {
+	-webkit-tap-highlight-color: $c;
+}
+// 标题块
+@mixin setArrow($direction, $arrowsize, $borderColor, $borderWidth) {
+	display: inline-block;
+	height: $arrowsize;
+	width: $arrowsize;
+	border-width: $borderWidth $borderWidth 0 0;
+	border-color: $borderColor;
+	border-style: solid;
+	@if $direction == top {
+		transform: matrix(0.71,-0.71,0.71,0.71,0,0); // rotate(-45deg)
+	} @else if $direction == right {
+		transform: matrix(0.71,0.71,-0.71,0.71,0,0); // rotate(45deg);
+
+		position: relative;
+		top: -2px;
+	} @else if $direction == down {
+		transform: matrix(-0.71,0.71,-0.71,-0.71,0,0); // rotate(135deg);
+
+		position: relative;
+		top: -3px;
+	} @else if $direction == left {
+		transform: matrix(-0.71,-0.71,0.71,-0.71,0,0); // rotate(-135deg);
+
+		position: relative;
+		top: -2px;
+	}
+}
+// 文字处理
+@mixin ellipsis($w:auto) {
+	width: $w;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+@mixin ellipsisLn($line) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+}
+@mixin text_wrap() {
+	word-wrap:break-word;
+	word-break:break-all;
+}
+@mixin hyphens() {
+	word-wrap:break-word;
+	-webkit-hyphens:auto;
+	hyphens:auto;
+}
+// 文字截取
+@mixin text-overflow() {
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	word-wrap: normal;
+}
+@mixin word-break() {
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: normal;
+}
+// No wrap
+@mixin no-wrap() {
+	word-break: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+}
+// 文字隐藏
+@mixin hide-text() {
+	font-size: 0;
+	line-height: 0;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+// 圆角
+@mixin border-top-radius($radius) {
+	border-top-right-radius: $radius;
+	border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+	border-bottom-left-radius: $radius;
+	border-top-left-radius: $radius;
+}
+@mixin center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// 通用mixins
+@mixin transition($d) {
+	-webkit-transition-duration: $d;
+	transition-duration: $d;
+}
+@mixin delay($d) {
+	-webkit-transition-delay: $d;
+	transition-delay: $d;
+}
+@mixin transform($t) {
+	-webkit-transform: $t;
+	transform: $t;
+}
+@mixin transform-origin($to) {
+	-webkit-transform-origin: $to;
+	transform-origin: $to;
+}
+@mixin translate3d($x:0, $y:0, $z:0) {
+	-webkit-transform: translate3d($x,$y,$z);
+	transform: translate3d($x,$y,$z);
+}
+@mixin animation($a) {
+	-webkit-animation: $a;
+	animation: $a;
+}
+@mixin scrollable(){
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+@mixin flexbox-inline() {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: -webkit-inline-flex;
+	display: inline-flex;
+}
+@mixin flex-wrap($fw) {
+	@if ($fw == nowrap) {
+		-webkit-box-lines: single;
+		-moz-box-lines: single;
+		-webkit-flex-wrap: nowrap;
+		-ms-flex-wrap: none;
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+	} @else if ($fw == wrap) {
+		-webkit-box-lines: multiple;
+		-moz-box-lines: multiple;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	} @else {
+		-webkit-flex-wrap: $fw;
+		-ms-flex-wrap: $fw;
+		flex-wrap: $fw;
+	}
+}
+@mixin flex-shrink($fs) {
+	-webkit-box-flex: $fs;
+	-webkit-flex-shrink: $fs;
+	-ms-flex: 0 $fs auto;
+	flex-shrink: $fs;
+}
+@mixin justify-content($jc) {
+	@if ($jc == flex-start) {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		-webkit-justify-content: flex-start;
+		justify-content: flex-start;
+	}
+}
+@mixin justify-content($jc) {
+	@if ($jc == flex-end) {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		-webkit-justify-content: flex-end;
+		justify-content: flex-end;
+	} @else if ($jc == space-between) {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	} @else {
+		-webkit-box-pack: $jc;
+		-ms-flex-pack: $jc;
+		-webkit-justify-content: $jc;
+		justify-content: $jc;
+	}
+}
+@mixin align-items($ai) {
+	@if ($ai == flex-start) {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+	} @else if ($ai == flex-end) {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+		-webkit-align-items: flex-end;
+		align-items: flex-end;
+	} @else {
+		-webkit-box-align: $ai;
+		-ms-flex-align: $ai;
+		-webkit-align-items: $ai;
+		align-items: $ai;
+	}
+}
+@mixin align-content($ai) {
+	-ms-flex-line-pack: $ai;
+	-webkit-align-content: $ai;
+	align-content: $ai;
+}
+@mixin align-self($as) {
+	-ms-flex-item-align: $as;
+	-webkit-align-self: $as;
+	align-self: $as;
+}
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+@mixin hairline($position, $color) {
+	@if ($position == top) {
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: auto;
+			right: auto;
+			height: 1px;
+			width: 100%;
+			background-color: $color;
+			display: block;
+			z-index: 15;
+			@include transform-origin(50% 0%);
+			html.pixel-ratio-2 &{
+				@include transform(scaleY(0.5));
+			}
+			html.pixel-ratio-3 &{
+				@include transform(scaleY(0.33));
+			}
+		}
+	} @else if $position == left {
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: auto;
+			right: auto;
+			width: 1px;
+			height: 100%;
+			background-color: $color;
+			display: block;
+			z-index: 15;
+			@include transform-origin(0% 50%);
+			html.pixel-ratio-2 &{
+				@include transform(scaleX(0.5));
+			}
+			html.pixel-ratio-3 &{
+				@include transform(scaleX(0.33));
+			}
+		}
+	} @else if $position == bottom {
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: auto;
+			top: auto;
+			height: 1px;
+			width: 100%;
+			background-color: $color;
+			display: block;
+			z-index: 15;
+			@include transform-origin(50% 100%);
+			html.pixel-ratio-2 &{
+				@include transform(scaleY(0.5));
+			}
+			html.pixel-ratio-3 &{
+				@include transform(scaleY(0.33));
+			}
+		}
+	} @else if $position == right {
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: auto;
+			bottom: auto;
+			width: 1px;
+			height: 100%;
+			background-color: $color;
+			display: block;
+			z-index: 15;
+			@include transform-origin(100% 50%);
+			html.pixel-ratio-2 &{
+				@include transform(scaleX(0.5));
+			}
+			html.pixel-ratio-3 &{
+				@include transform(scaleX(0.33));
+			}
+		}
+	}
+}
+
+// For right and bottom
+@mixin hairline-remove($position) {
+	@if ($position != left) and ($position != top) {
+		&:after {
+			display: none;
+		}
+	} @else if ($position != right) and ($position != bottom) { // For left and top
+		&:before {
+			display: none;
+		}
+	}
+}
+@mixin hairline-color ($position, $color) {
+	@if ($position != left) and ($position != top) { // For right and bottom
+		&:after {
+			background-color: $color;
+		}
+	} @else if ($position != right) and ($position != bottom) { // For left and top
+		&:before {
+			background-color: $color;
+		}
+	}
+}
+
+// Encoded SVG Background
+@mixin encoded-svg-background($svg) {
+	background-image: url("data:image/svg+xml;charset=utf-8,#{$svg}");
+}
+
+// Preserve3D
+@mixin preserve3d() {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+// Shadow
+@mixin depth($level:1) {
+	& {
+		@if $level == 1 {
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		} @else if $level == 2 {
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		} @else if $level == 3 {
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+		} @else if $level == 4 {
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		} @else if $level == 5 {
+			box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+		}
+	}
+}
+
+// Highlighted Links
+@mixin active-highlight($color:rgba(255,255,255,0.15)) {
+	&:before {
+		content: "";
+		width: 152%;
+		height: 152%;
+		position: absolute;
+		left: -26%;
+		top: -26%;
+		background-image: -webkit-radial-gradient(center, circle cover, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
+		background-image: radial-gradient(circle at center, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100% 100%;
+		opacity: 0;
+		pointer-events: none;
+		@include transition(600ms);
+	}
+	html:not(.watch-active-state) &:active:before, &.active-state:before {
+		opacity: 1;
+		@include transition(150ms);
+	}
+}
+@mixin active-highlight-color($color) {
+	&:before {
+		background-image: -webkit-radial-gradient(center, circle cover, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
+		background-image: radial-gradient(circle at center, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
+	}
+}

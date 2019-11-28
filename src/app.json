@@ -1,0 +1,57 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/complaint/index",
+        "pages/delivery/index",
+        "pages/delivery/detail",
+        "pages/delivery/detail_take",
+        "pages/member/authorize",
+        "pages/member/login",
+        "pages/order/index",
+        "pages/order/list",
+        "pages/my/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#0e86f4",
+        "navigationBarTitleText": "江苏移动供应商",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#EDEDED"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#2daef8",
+        "borderStyle": "black",
+        "backgroundColor": "#f7f7fa",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "image/tabbar/icon-1.png",
+                "selectedIconPath": "image/tabbar/icon-1-active.png"
+            },
+            {
+                "pagePath": "pages/complaint/index",
+                "text": "投诉",
+                "iconPath": "image/tabbar/icon-2.png",
+                "selectedIconPath": "image/tabbar/icon-2-active.png"
+            },
+            {
+                "pagePath": "pages/delivery/index",
+                "text": "发货",
+                "iconPath": "image/tabbar/icon-3.png",
+                "selectedIconPath": "image/tabbar/icon-3-active.png"
+            },
+            {
+                "pagePath": "pages/my/index",
+                "text": "我的",
+                "iconPath": "image/tabbar/icon-4.png",
+                "selectedIconPath": "image/tabbar/icon-4-active.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "debug": true,
+    "sitemapLocation": "sitemap.json"
+}
