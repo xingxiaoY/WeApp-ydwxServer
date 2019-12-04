@@ -3,7 +3,7 @@
 	<import src="../moban/moban_index.wxml"/>
 	<!--pages/home/index.wxml-->
 	<view class="home-dind">
-		<navigator url="">
+		<navigator url="../member/login">
 			<image src="/image/home/home-1.jpg" class="imgs"></image>
 		</navigator>
 	</view>
