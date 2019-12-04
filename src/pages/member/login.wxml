@@ -1,7 +1,11 @@
 
 <view class="app-cells-title bg-white text-weight text-black text-f16">欢迎登录</view>
+<form bindsubmit="submitForm">
+
+
 <view class="weui-cells weui-cells_after-title app-cells">
 	<view class="weui-cells weui-cells_after-title app-cells">
+<!--
 		<view class="weui-cell weui-cell_select app-cell-select">
 			<view class="weui-cell__hd weui-cell__hd_in-select-after">
 				<view class="weui-label text-gray">公司名称</view>
@@ -22,13 +26,14 @@
 				</picker>
 			</view>
 		</view>
+-->
 
 		<view class="weui-cell">
 			<view class="weui-cell__hd">
-				<view class="weui-label text-gray">姓名</view>
+				<view class="weui-label text-gray">登录名</view>
 			</view>
 			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入"/>
+				<input class="weui-input" placeholder="请输入" name="text" value="{{ form.userLoginName}}"/>
 			</view>
 		</view>
 		<view class="weui-cell">
@@ -36,21 +41,22 @@
 				<view class="weui-label text-gray">手机</view>
 			</view>
 			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入"/>
+				<input class="weui-input" placeholder="请输入" name="tel" value="{{ form.mobile}}" type="number" maxlength="11"/>
 			</view>
 		</view>
-		<view class="weui-cell">
+		<!--<view class="weui-cell">
 			<view class="weui-cell__hd">
 				<view class="weui-label text-gray">密码</view>
 			</view>
 			<view class="weui-cell__bd">
 				<input class="weui-input" placeholder="请输入"/>
 			</view>
-		</view>
+		</view>-->
 	</view>
 </view>
 
 <view class="weui-btn-area">
-	<button class="weui-btn weui-btn_full" type="primary">登录</button>
+	<button class="weui-btn weui-btn_full" formType="submit" type="primary">登录</button>
 </view>
+</form>
 

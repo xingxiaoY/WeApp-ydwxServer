@@ -1,82 +1,115 @@
-// pages/delivery/detail.js
+import WxValidate from '../../utils//WxValidate'
+
+const App = getApp()
+
 Page({
-
-	/**
-	 * 页面的初始数据
-	 */
 	data: {
-		countries: ["中国", "美国", "英国"],
-		countryIndex: 0,
-		date: "2016-09-01",
-		// input默认是1
-		num: 1,
-		// 使用data数据对象设置样式名
-		minusStatus: 'disabled'
+		form: {
+			// userLoginName: '',
+			mobile: '',
+		},
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-
+	onLoad() {
+		this.initValidate()
+		console.log(this.WxValidate)
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
-	},
-
-	bindCountryChange: function(e) {
-		console.log('picker country 发生选择改变，携带值为', e.detail.value);
-
-		this.setData({
-			countryIndex: e.detail.value
+	showModal(error) {
+		wx.showModal({
+			content: error.msg,
+			showCancel: false,
 		})
 	},
+	submitForm(e) {
+		const params = e.detail.value;
+		// console.log(params);
+		const tel = e.detail.value.tel;
+		console.log(tel);
+		// 传入表单数据，调用验证方法
+		if (!this.WxValidate.checkForm(params)) {
+			const error = this.WxValidate.errorList[0]
+			this.showModal(error)
+			return false
+		}else{
+
+			wx.request({
+
+				url: 'https://weixin2.sinoprof.com:8443/api/minipro/loginTest',
+
+				header: {
+
+					"Content-Type": "application/x-www-form-urlencoded"
+
+				},
+
+				method: "post",
+
+				data:{mobile:tel},
+				// data:{mobile:e.detail.value.tel,userLoginName:e.detail.value.userLoginName},
+
+				success: function(res) {
+
+					if(res.data.status == 0){
+
+						wx.showToast({
+
+							title: res.data.code,
+
+							icon: 'loading',
+
+							duration: 1500
+
+						})
+
+
+
+					}else{
+						console.log(res)
+						wx.showToast({
+
+							title: res.data.message,//这里打印出登录成功
+
+							icon: 'success',
+
+							duration: 1000
+
+						})
+
+					}
+
+				}
+
+			})
+
+		}
+	},
+	initValidate() {
+		// 验证字段的规则
+		const rules = {
+			text: {
+				required: true,
+			},
+			tel: {
+				required: true,
+				tel: true,
+			},
+
+		}
+
+		// 验证字段的提示信息，若不传则调用默认的信息
+		const messages = {
+			text: {
+				required: '请输入登录名',
+			},
+			tel: {
+				required: '请输入手机号',
+				tel: '请输入正确的手机号',
+			},
+		}
+
+		// 创建实例对象
+		this.WxValidate = new WxValidate(rules, messages)
+	},
+
 
 
 })
