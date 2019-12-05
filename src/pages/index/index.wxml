@@ -3,13 +3,9 @@
 	<import src="../moban/moban_index.wxml"/>
 	<!--pages/home/index.wxml-->
 	<view class="home-dind">
-		<navigator url="../member/login"  hidden="{{hiddenName}}">
+		<navigator url="../member/login">
 			<image src="/image/home/home-1.jpg" class="imgs"></image>
 		</navigator>
-		<view  hidden="{{hiddenimg}}">
-			<image src="/image/home/home-3.jpg" class="imgs"></image>
-			<text style="position: absolute; top: 5px;right:20px;color: #fff">欢迎：{{userLoginName}}</text>
-		</view>
 	</view>
 	<view class="index-nav">
 		<template is="index_index_navs_tmpl" data="{{...index_index_navs_tmpl}}"/>
@@ -19,7 +15,7 @@
 		<navigator url="/pages/order/index">
 			<image src="/image/home/home-pic1.png" class="bg-img"></image>
 			<view class="index-db-txt">
-				<b>当前待办<text class="db-num">{{numData}}</text>个</b>
+				<b>当前待办<text class="db-num">2</text>个</b>
 			</view>
 		</navigator>
 	</view>

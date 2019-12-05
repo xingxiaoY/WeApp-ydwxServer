@@ -59,3 +59,4 @@
 	<button class="weui-btn weui-btn_full" formType="submit" type="primary">登录</button>
 </view>
 </form>
+
