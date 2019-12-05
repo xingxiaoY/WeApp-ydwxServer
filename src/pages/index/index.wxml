@@ -19,7 +19,7 @@
 		<navigator url="/pages/order/index">
 			<image src="/image/home/home-pic1.png" class="bg-img"></image>
 			<view class="index-db-txt">
-				<b>当前待办<text class="db-num">..</text>个</b>
+				<b>当前待办<text class="db-num">{{numData}}</text>个</b>
 			</view>
 		</navigator>
 	</view>

@@ -21,7 +21,9 @@
 						refresh-size="{{80}}"
 						bind:refresh="refresh"
 						bind:more="more">
-					<view class="timeline">
+					<view class="timeline"
+						  wx:for="{{item.listData}}"
+						  wx:key="{{index}}">
 						<view class="timeline-item">
 							<view class="timeline-hd">
 								<text class='timeline-dot active'></text>
@@ -29,14 +31,14 @@
 							</view>
 							<view class="timeline-bd">
 								<view class="timeline-bd-main timeline-bd-inline">
-									<view class="timeline-bd-name text-weight text-f16">VD-SH-2019060002270</view>
+									<view class="timeline-bd-name text-weight text-f16">{{item.segment1}}</view>
 									<view class="timeline-bd-inner timeline-bd-inner-db">
 										<view class="timeline-bd-fhtime">
-											<text class="text-weight text-f16">2019-11-16.00</text>
+											<text class="text-weight text-f16">{{item.sendDateStr}}</text>
 											<text class="text-gray">发货时间</text>
 										</view>
 										<view class="timeline-bd-dhtime">
-											<text class="text-blue text-f16">2019-11-16</text>
+											<text class="text-blue text-f16">{{item.arriveDateStr}}</text>
 											<text class="text-gray">预计到货时间</text>
 										</view>
 									</view>
@@ -44,8 +46,8 @@
 								<view class="timeline-bd-info text-graydark">
 									<view class="weui-cell app-cell pd-0">
 										<view class="weui-cell__bd">
-											<text>供应商：华为技术有限公司</text>
-											<text>运输商：中外运</text>
+											<text>供应商：{{item.vendorName}}</text>
+											<text>运输商：{{item.transer}}</text>
 										</view>
 										<view class="weui-cell__ft">
 											<button class="weui-btn btn-orange text-f14" size="mini">去收货1</button>
