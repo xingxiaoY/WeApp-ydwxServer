@@ -1,32 +1,44 @@
 // pages/home/index.js
+
+const aes = require('../../utils/aes_util');
+const fetch = require('../../utils/fetch');
+
+let app = getApp();
+
 Page({
+
 
   /**
    * 页面的初始数据
    */
   data: {
     //首页list页面入口
+	  userLoginName:'',
+	  hiddenName:'',
+	  hiddenimg:true,
+	  numData:'',
+
     zlts:[
       {
         img:'/image/home/home-ico6.png',
       title:'工程建设',
-      tsnum:'2',
-      wdnum:'23'
+      tsnum:'',
+      wdnum:''
       }, {
         img: '/image/home/home-ico7.png',
         title: '工程合规性',
-        tsnum: '1',
-        wdnum: '23'
+        tsnum: '',
+        wdnum: ''
       }, {
         img: '/image/home/home-ico8.png',
         title: '服务履约',
-        tsnum: '1',
-        wdnum: '23'
+        tsnum: '',
+        wdnum: ''
       }, {
         img: '/image/home/home-ico9.png',
         title: '相关建议',
-        tsnum: '1',
-        wdnum: '23'
+        tsnum: '',
+        wdnum: ''
       }
     ],
 
@@ -55,14 +67,41 @@ Page({
       ]
     }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+	  var that = this;
+	  //缓存用户名信息
+	  wx.getStorage({
+		  key: 'userLoginName',
+		  success: function(res) {
+			  console.log(res.data)
+			  that.setData({
+				  userLoginName:res.data,
+				  hiddenName:!that.data.hiddenName,
+				  hiddenimg:'',
+			  })
+		  }
+	  });
+	  //代办数量
+	  let method = 'GET';
+	  let url = 'apiVendorDeliver/getAgentNumber';
+	  let data = {
+		  curLoginName: that.data.userLoginName,               //当前代办数量
+	  }
 
+	  fetch(method, url, data).then(res => {
+		  console.log(res); //返回参数
+		  let resCode = res.data.code;
+		  let resData = aes.Decrypt(res.data.data);
+		  if(resCode === '0') {
+			  that.setData({
+				  numData: resData,
+			  })
+		  }
+	  })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
