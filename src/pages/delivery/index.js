@@ -44,26 +44,26 @@ Page({
 		empty: false
 	},
 	getList(type, currentPage) {
+		var userInfo = wx.getStorageSync('userInfo');
+		var userLoginName = userInfo.userLoginName;
 		if(this.data.end) return;
-
 		this.setData({
 			requesting: true
 		})
-
 		wx.showNavigationBarLoading()
 
 		let method = 'GET';
 		let url = 'apiVendorDeliver/apiListForCreate?';
 		let data = {
-			vendorLoginName: app.globalData.loginUserName,
+			vendorLoginName: userLoginName,
 			pageNo: currentPage + 1,
 			pageSize: app.globalData.pageSize
 		}
 		fetch(method, url, data).then(res => {
 			let resCode = res.data.code;
-			let resData = aes.Decrypt(res.data.data.list);
-			const hasMore = (currentPage + 1) >= res.data.data.pages;
 			if(resCode === '0') {
+				let resData = aes.Decrypt(res.data.data.list);
+				const hasMore = (currentPage + 1) >= res.data.data.pages;
 				this.setData({
 					requesting: hasMore
 				})
@@ -86,11 +86,16 @@ Page({
 						end: true
 					})
 				}
+				if(res.data.data.pages === 0) {
+					this.setData({
+						emptyShow: true
+					})
+				}
 			} else {
 				wx.hideNavigationBarLoading()
 				this.setData({
 					requesting: false,
-					emptyShow: true,
+					emptyShow: true
 				})
 			}
 		})

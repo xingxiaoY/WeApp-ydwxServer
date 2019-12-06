@@ -327,8 +327,6 @@
 		}
 	}
 }
-
-// For right and bottom
 @mixin hairline-remove($position) {
 	@if ($position != left) and ($position != top) {
 		&:after {
@@ -410,4 +408,16 @@
 		background-image: -webkit-radial-gradient(center, circle cover, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
 		background-image: radial-gradient(circle at center, $color 66%, rgba(red($color),green($color),blue($color),0) 66%);
 	}
+}
+
+// calc计算
+@mixin calc-width($val) {
+	width: -webkit-calc(100% - #{$val});
+	width: -moz-calc(100% - #{$val});
+	width: calc(100% - #{$val});
+}
+@mixin calc-height($val) {
+	height: -webkit-calc(100% - #{$val});
+	height: -moz-calc(100% - #{$val});
+	height: calc(100% - #{$val});
 }

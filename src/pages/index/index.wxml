@@ -16,7 +16,7 @@
 	</view>
 
 	<view class="section index-db-box">
-		<navigator url="/pages/order/index">
+		<navigator url="/pages/work/index">
 			<image src="/image/home/home-pic1.png" class="bg-img"></image>
 			<view class="index-db-txt">
 				<b>当前待办<text class="db-num">{{numData}}</text>个</b>

@@ -24,11 +24,11 @@
 				</view>
 				<view class="weui-cell__bd text-black">{{creationDate}}</view>
 			</view>
-			<view class="weui-cell">
+			<view class="weui-cell" wx:if="{{segment1.length > 0}}">
 				<view class="weui-cell__hd">
 					<view class="weui-label text-gray">发货单号</view>
 				</view>
-				<view class="weui-cell__bd text-black">{{headerId}}</view>
+				<view class="weui-cell__bd text-black">{{segment1}}</view>
 			</view>
 			<view class="weui-cell">
 				<view class="weui-cell__hd">
@@ -44,7 +44,7 @@
 					<view class="weui-label text-gray">物流公司</view>
 				</view>
 				<view class="weui-cell__bd">
-					<input class="weui-input" id="transer" placeholder="请输入物流公司"/>
+					<input class="weui-input" name="transer" placeholder="请输入物流公司" value="丹鸟"/>
 				</view>
 			</view>
 			<view class="weui-cell">
@@ -52,7 +52,7 @@
 					<view class="weui-label text-gray">联系人</view>
 				</view>
 				<view class="weui-cell__bd">
-					<input class="weui-input" id="contractName" placeholder="请输入联系人"/>
+					<input class="weui-input" name="contractName" placeholder="请输入联系人" value="王丹丹"/>
 				</view>
 			</view>
 			<view class="weui-cell">
@@ -60,7 +60,7 @@
 					<view class="weui-label text-gray">联系人电话</view>
 				</view>
 				<view class="weui-cell__bd">
-					<input class="weui-input" idcontractPhone placeholder="请输入联系人电话"/>
+					<input class="weui-input" name="contractPhone" placeholder="请输入联系人电话" value="13738961234"/>
 				</view>
 			</view>
 		</view>
@@ -94,7 +94,7 @@
 				<view class="weui-cell__hd">
 					<view class="weui-label text-gray">收货人/电话</view>
 				</view>
-				<view class="weui-cell__bd text-black">{{rcvContractName}}/{{rcvContractPhone}}/</view>
+				<view class="weui-cell__bd text-black">{{rcvContractName}}/{{rcvContractPhone}}</view>
 			</view>
 		</view>
 		<!--<view class="weui-cells weui-cells_after-title app-cells">
@@ -143,12 +143,12 @@
 
 		<view class="weui-flex delivery-detail bg-white text-center">
 			<view class="weui-flex__item">
-				<view class="placeholder text-red text-weight text-f16">16815.00</view>
+				<view class="placeholder text-red text-weight text-f16">{{poAmountTax}}</view>
 				<view class="placeholder text-gray">总金额(元)</view>
 			</view>
 			<view class="weui-flex__item">
 				<view class="placeholder text-weight text-f16">
-					<text class="text-blue">60</text> / <text>100</text>
+					<text class="text-blue">0</text> / <text>{{totalQuantity}}</text>
 				</view>
 				<view class="placeholder text-gray">发货数量/总数量</view>
 			</view>
@@ -193,11 +193,13 @@
 				</view>
 				<view class="stepper">
 					<text class="{{minusStatus}}" bindtap="bindMinus">-</text>
-					<input data-id="{{item.lineId}}" data-value="{{item.quantity}}" name="quantity[{{index}}]" type="number" bindchange="bindManual" value="10" />
+					<input data-id="{{item.lineId}}" data-value="{{item.quantity}}" name="lines[{{index}}].poQuantity" type="number" bindchange="bindManual" value="2" />
 					<text data-id="{{item.lineId}}" data-value="{{item.quantity}}" class="normal" bindtap="bindPlus">+</text>
 				</view>
 			</view>
-
+			<view class="dis-none">
+				<input name="lines[{{index}}].lineId" value="{{item.lineId}}"/>
+			</view>
 
 		</view>
 
@@ -205,8 +207,8 @@
 
 	<view class="app-toolbar">
 		<view class="weui-flex">
-			<view class="weui-flex__item"><button formType="submit" data-type='save' class="weui-btn btn btn-green text-f14" size="default">保存</button></view>
-			<view class="weui-flex__item"><button formType="submit" data-type='submit' class="weui-btn btn btn-blue text-f14" >提交</button></view>
+			<view class="weui-flex__item"><button formType="submit" data-type='COMPLETE' class="weui-btn btn btn-green text-f14" size="default">保存</button></view>
+			<view class="weui-flex__item"><button formType="submit" data-type='IN PROCESS' class="weui-btn btn btn-blue text-f14" >提交</button></view>
 		</view>
 	</view>
 

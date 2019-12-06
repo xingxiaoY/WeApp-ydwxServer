@@ -1,9 +1,9 @@
-/* pages/delivery/detail_take.wxss */
+/* pages/work/detail.wxss */
 
 @import "../../assets/scss/support";
 
 .delivery-detail {
-    padding: 32rpx 0;
+    padding: 16px 0;
 }
 .delivery-detail .weui-flex__item {
     position: relative;
@@ -20,9 +20,9 @@
 }
 
 .delivery-goods {
-    margin: 32rpx;
-    padding: 20rpx;
-    border-radius: 20rpx;
+    margin: 16px;
+    padding: 10px;
+    border-radius: 10px;
 }
 .delivery-goods-info {
     align-items: center

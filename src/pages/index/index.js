@@ -74,11 +74,12 @@ Page({
 		var that = this;
 		//缓存用户名信息
 		wx.getStorage({
-			key: 'userLoginName',
+			key: 'userInfo',
 			success: function(res) {
 				console.log(res.data)
 				that.setData({
-					userLoginName:res.data,
+					userLoginName:res.data.userLoginName,
+					sessionKey:res.data.sessionKey,
 					hiddenName:!that.data.hiddenName,
 					hiddenimg:'',
 				})
@@ -86,7 +87,7 @@ Page({
 				let method = 'GET';
 				let url = 'apiVendorDeliver/getAgentNumber';
 				let data = {
-					curLoginName: res.data,               //当前代办数量
+					curLoginName: res.data.userLoginName,               //当前代办数量
 				}
 
 				fetch(method, url, data).then(res => {

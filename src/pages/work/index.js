@@ -2,8 +2,7 @@ const aes = require('../../utils/aes_util');
 const fetch = require('../../utils/fetch');
 
 let app = getApp();
-/*let pageStart = 0;
-let pageSize = 15;*/
+
 Page({
 	data: {
 		duration: 300,  // swiper-item 切换过渡时间
@@ -17,7 +16,8 @@ Page({
 				end: false,
 				emptyShow: false,
 				page: app.globalData.pageStart,
-				listData: []
+				listData: [],
+				type: 0
 			},
 			{
 				name: "待发货",
@@ -25,7 +25,8 @@ Page({
 				end: false,
 				emptyShow: false,
 				page: app.globalData.pageStart,
-				listData: []
+				listData: [],
+				type: 1
 			},
 			{
 				name: "待接收",
@@ -33,7 +34,8 @@ Page({
 				end: false,
 				emptyShow: false,
 				page: app.globalData.pageStart,
-				listData: []
+				listData: [],
+				type: 2
 			},
 			{
 				name: "投诉建议",
@@ -46,31 +48,32 @@ Page({
 		]
 	},
 	getList(type, currentPage) {
+		var userInfo = wx.getStorageSync('userInfo');
+		var userLoginName = userInfo.userLoginName;
 		let pageData = this.getCurrentData();
-
+		if(pageData.end) return;
 		pageData.requesting = true;
-
 		this.setCurrentData(pageData);
-
 		wx.showNavigationBarLoading();
 
 		let method = 'GET';
-		let url = 'apiVendorDeliver/getAgentList';
+		let url = 'apiVendorDeliver/getAgentList?';
 		let data = {
-			curLoginName: app.globalData.loginUserName,
+			curLoginName: userLoginName,
+			type: pageData.type,
 			pageNo: currentPage + 1,
 			pageSize: app.globalData.pageSize
 		}
+		console.log(data)
 		fetch(method, url, data).then(res => {
 			let resCode = res.data.code;
-			let resData = aes.Decrypt(res.data.data.list);
-			console.log(res)
-			const hasMore = (currentPage + 1) >= res.data.data.pages;
+			console.log(resCode)
 			if(resCode === '0') {
+				let resData = aes.Decrypt(res.data.data.list);
+				console.log(resData)
+				const hasMore = (currentPage + 1) >= res.data.data.pages;
 				pageData.requesting = hasMore;
-
 				wx.hideNavigationBarLoading();
-
 				if (type === 'refresh') {
 					pageData.listData = resData;
 					pageData.end = hasMore;
@@ -80,22 +83,30 @@ Page({
 					pageData.end = hasMore;
 					pageData.page = currentPage + 1;
 				}
-
-				if(res.data.data.pages === 1) {
+				if(res.data.data.pages <= 1) {
 					pageData.requesting = false;
 					pageData.end = true;
 				}
-				this.setCurrentData(pageData);
+				if(res.data.data.pages === 0) {
+					pageData.emptyShow = true;
+				}
+				const restype = res.data.type;
+				if(res.data.type == this.data.categoryCur){
+					pageData.listData = pageData.listData;
+					// console.log(pageData.type)
+				}
 
 			} else {
 				wx.hideNavigationBarLoading();
 				pageData.requesting = false;
 				pageData.emptyShow = true;
 			}
+			this.setCurrentData(pageData);
 		})
 	},
 	// 顶部tab切换事件
 	toggleCategory(e) {
+
 		this.setData({
 			duration: 0
 		});

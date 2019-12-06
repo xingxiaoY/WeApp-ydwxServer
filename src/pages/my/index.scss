@@ -1,0 +1,104 @@
+@import "../../assets/scss/support";
+.my-banner{
+	.imgs{
+		width: 750rpx;
+		height: 248rpx;
+	}
+}
+.my-info{
+	position: absolute;
+	left: 33rpx;
+	right: 33rpx;
+	margin:auto;
+	width: 688rpx;
+	top: 46rpx;
+	border-radius: 10px;
+	background-image: linear-gradient(#edf8fe, #ffffff);
+	box-shadow: 0 6rpx 20rpx rgba(92, 91, 91, 0.2);
+	.weui-cell{
+		padding-bottom: 14rpx;
+	}
+	.weui-cells{
+		background: none;
+	}
+	.my-head{
+		image{
+			width: 125rpx;
+			height:125rpx;
+			margin-right: 10px;
+		}
+
+	}
+	.my-name{
+		color: $black;
+		navigator{
+			display: inline-block;
+		}
+	}
+	.my-dep{
+		color: $gray;
+	}
+}
+.my-nav {
+	padding-top: 130rpx;
+	display: flex;
+	align-items: center;
+	color:$graydarker;
+	text-align: center;
+	background: $white;
+	padding-bottom: 20rpx;
+	view {
+		flex: 1;
+		flex-direction: column;
+		align-items: center
+	}
+	image {
+		width: 41rpx;
+		height: 46rpx;
+		display: block;
+		margin: auto;
+	}
+	.list-tit {
+		display: block;
+		padding-top: 15rpx;
+	}
+}
+.weui-cells-myset{
+	.weui-cell{
+		.weui-cell__hd{
+			image{
+				width: 38rpx;
+				height: 38rpx;
+				padding-right: 20rpx;
+				display: block;
+			}
+		}
+		.weui-cell__bd{
+			font-size: 31rpx;
+			color: $graydarker;
+		}
+	}
+}
+.my-msg-list{
+	display: flex;
+	align-items: center;
+	color: #666666;
+	text-align: center;
+	.list-enter{
+		flex: 1;
+		padding-bottom: 20rpx;
+		&:last-child{
+			.num{
+				border-right:none!important;
+			}
+		}
+		.num{
+			font-size: 40rpx;
+			border-right: solid 1rpx $bgborder;
+		}
+		.tit{
+			font-size: 28rpx;
+			color: $graydarker;
+		}
+	}
+}

@@ -1,34 +1,34 @@
-// pages/delivery/detail.js
+// pages/work/detail.js
 const util = require('../../utils/util');
 const aes = require('../../utils/aes_util');
 const fetch = require('../../utils/fetch');
 
 let app = getApp();
-
 Page({
+
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		poSegment1: '',
-		creationDate: '',
-		orgName: '',
-		rcvContractAddress: '',
-		rcvContractName: '',
-		rcvContractPhone: '',
 		headerId: 0,
 		showZeroQty: '',		//查询送货行时， 显示/不显示送货数量为0的数据'
 		shipmentHeaderId: '',
-		segment1: '',	//入库单ID
+		projectName: '',
+		poSegment1: '',
+		creationDate: '',
+		segment1: '',
+		orgName: '',
+		transer: '',
+		vendorContractName: '',
+		vendorContractPhone: '',
+		rcvContractAddress: '',
+		rcvContractName: '',
+		rcvContractPhone: '',
 		poAmountTax: '',
 		totalQuantity: '',
-		/*countries: ["中国", "美国", "英国"],
-		countryIndex: 0,*/
-		date: null,
-		// input默认是1
-		num: 1,
-		// 使用data数据对象设置样式名
-		minusStatus: 'disabled',
+		// 收货日期
+		date: "",
+		calendarShow: false,
 		// 列表
 		isIphoneX: app.globalData.isIphoneX,
 		requesting: false,
@@ -42,52 +42,55 @@ Page({
 		bottomSize: 120,
 		empty: false
 	},
-
+	// 收货日期
+	select({ detail }) {
+		console.log(detail.text)
+		this.setData({ date: detail.text });
+		this.offCalendar();
+	},
+	openCalendar() {
+		this.setData({ calendarShow: true });
+	},
+	offCalendar() {
+		this.setData({ calendarShow: false });
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		var userInfo = wx.getStorageSync('userInfo');
-		var userLoginName = userInfo.userLoginName;
-		// 发货单详情
-		let method = 'POST';
-		let url = 'apiVendorDeliver/initApiVendorDeliver?';
+		let method = 'GET';
+		let url = 'apiVendorDeliver/getApiVendorDeliver?';
 		let data = {
-			curLoginName: userLoginName,							//当前登录供应商登录名
-			poHeaderId: options.poHeaderId,							//订单头id
-			inventoryItemFlagDesc: options.inventoryItemFlagDesc,		//送货类型
-			organizationId: options.organizationId,					//组织id
-			rcvContractName: options.rcvContractName,					//收货联系人名称
-			rcvContractId: options.rcvContractId,						//收货联系人id
-			rcvContractPhone: options.rcvContractPhone,				//收货联系人电话
-			rcvContractAddress: options.rcvContractAddress,			//收货联系人地址
-			isDelivery: options.isDelivery,							//是否直发
-			projectId: options.projectId,								//项目id
-			headerId: options.headerId								//发货单headerid
+			headerId: options.headerId
 		}
 		fetch(method, url, data).then(res => {
-			// console.log(res)
-			var time = util.formatTime(new Date(),2);
 			let resCode = res.data.code;
 			let resData = aes.Decrypt(res.data.data);
-			// console.log(resData)
+			console.log(res)
+			console.log(resCode)
+			console.log(resData)
 			if(resCode === '0') {
 				this.setData({
-					date: time,
+					headerId: options.headerId,
+					projectName: resData.projectName,
 					poSegment1: resData.poSegment1,
-					creationDate: resData.creationDate,
+					segment1: resData.segment1,
 					orgName: resData.orgName,
+					transer: resData.transer,
+					vendorContractName: resData.vendorContractName,
+					vendorContractPhone: resData.vendorContractPhone,
 					rcvContractAddress: resData.rcvContractAddress,
 					rcvContractName: resData.rcvContractName,
 					rcvContractPhone: resData.rcvContractPhone,
 					poAmountTax: resData.poAmountTax,
 					totalQuantity: resData.totalQuantity,
-					headerId: resData.headerId,
 					showZeroQty: resData.showZeroQty,
 					shipmentHeaderId: resData.shipmentHeaderId,
 				})
 				// 发货单产品清单
 				this.getList('refresh', app.globalData.pageStart);
+			} else {
+
 			}
 		})
 	},
@@ -104,8 +107,6 @@ Page({
 		let url = 'apiVendorDeliver/getApiLines?';
 		let data = {
 			headerId: this.data.headerId,
-			showZeroQty: this.data.showZeroQty != null ? this.data.showZeroQty : '',
-			shipmentHeaderId: this.data.shipmentHeaderId != null ? this.data.shipmentHeaderId : '',
 			pageNo: currentPage + 1,
 			pageSize: app.globalData.pageSize
 		}
@@ -158,13 +159,6 @@ Page({
 	more() {
 		this.getList('more', this.data.page);
 	},
-
-	/*bindCountryChange: function(e) {
-		console.log('picker country 发生选择改变，携带值为', e.detail.value);
-		this.setData({
-			countryIndex: e.detail.value
-		})
-	},*/
 	formSubmit: function (e) {
 		var userInfo = wx.getStorageSync('userInfo');
 		var userLoginName = userInfo.userLoginName;
@@ -175,17 +169,19 @@ Page({
 			curLoginName: userLoginName,
 			headerId: this.data.headerId,
 			authorizationStatus: type,
-			isSaveSegment: 'Y',
-			segment1: '系统自动生成',
+			actuallyArriveDate: '',
+			segment1: this.data.segment1,
+			transer: this.data.transer,
+			contractName: this.data.vendorContractName,
+			contractPhone: this.data.vendorContractPhone,
 		}
 		newObj  = {...postVal, ...postData};						//ES6 对象生成一个新对象
 		let method = 'POST';
 		var data = newObj;
-		if(type === 'COMPLETE') {		// 发货单保存
-			var url = 'apiVendorDeliver/saveApiDeliverForm?';
-		} else if (type === 'IN PROCESS') {		// 发货单提交
-			var url = 'apiVendorDeliver/apiSubmit?';
-		} else {
+		console.log(data)
+		console.log(1111111111111111111111)
+		var url = 'apiVendorDeliver/apiSubmit?';
+		if(type === '') {
 			wx.showModal({
 				title: "信息提示",
 				content: "处理失败"
@@ -198,9 +194,6 @@ Page({
 			console.log(resCode)
 			console.log(resData)
 			if(resCode === '0') {
-				this.setData({
-					segment1: resData.segment1
-				})
 				wx.showToast({
 					title: res.data.message,
 					icon: 'success',
@@ -217,44 +210,6 @@ Page({
 				})
 			}
 		})
-	},
-	/* 点击减号 */
-	bindMinus: function() {
-		var num = this.data.num;
-		// 如果大于1时，才可以减
-		if (num > 1) {
-			num --;
-		}
-		// 只有大于一件的时候，才能normal状态，否则disable状态
-		var minusStatus = num <= 1 ? 'disabled' : 'normal';
-		// 将数值与状态写回
-		this.setData({
-			num: num,
-			minusStatus: minusStatus
-		});
-	},
-	/* 点击加号 */
-	bindPlus: function(e) {
-		let val = e.currentTarget.dataset;
-		console.log(e)
-		var num = this.data.num;
-		// 不作过多考虑自增1
-		num ++;
-		// 只有大于一件的时候，才能normal状态，否则disable状态
-		var minusStatus = num < 1 ? 'disabled' : 'normal';
-		// 将数值与状态写回
-		this.setData({
-			num: num,
-			minusStatus: minusStatus
-		});
-	},
-	/* 输入框事件 */
-	bindManual: function(e) {
-		var num = e.detail.value;
-		// 将数值与状态写回
-		this.setData({
-			num: num
-		});
 	}
 
 })

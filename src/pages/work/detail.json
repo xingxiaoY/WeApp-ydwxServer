@@ -1,0 +1,7 @@
+{
+    "disableScroll": true,
+    "usingComponents": {
+        "scroll": "../../components/scroll/index",
+        "calendar": "../../components/My-calendar/my-calendar"
+    }
+}

@@ -41,10 +41,10 @@ Page({
 				success: function(res) {
 					const message = res.data.message; //打印出手机号匹配成功
 					if(message=='请求成功'){
-						console.log(res.data.data.userLoginName);
+						// console.log(res.data.data.userLoginName);
 						wx.setStorage({
-							key:"userLoginName",
-							data:res.data.data.userLoginName
+							key:"userInfo",
+							data:res.data.data
 						})
 						wx.reLaunch({
 							url:'../index/index',
@@ -53,10 +53,11 @@ Page({
 							}
 						})
 					}else{
-						wx.showToast({
+						wx.showModal({
 							title: res.data.message,//打印出登录成功
-							icon: 'success',
+							// icon: 'success',
 							duration: 1500,
+							showCancel: false,
 							success:function(){
 								const message = res.data.message; //打印出手机号是否匹配
 

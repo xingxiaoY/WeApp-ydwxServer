@@ -50,7 +50,7 @@
 											<text>运输商：{{item.transer}}</text>
 										</view>
 										<view class="weui-cell__ft">
-											<button class="weui-btn btn-orange text-f14" size="mini">去收货1</button>
+											<navigator url="/pages/work/detail?&headerId={{item.headerId}}"  open-type="navigate" class="weui-btn btn-orange btn-default btn-radius text-f14 text-center" size="mini">去收货</navigator>
 										</view>
 									</view>
 

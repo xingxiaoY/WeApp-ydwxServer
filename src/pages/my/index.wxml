@@ -1,2 +1,71 @@
-<navigator url="../member/authorize">点击授权</navigator>
+<view class="page">
+	<import src="../moban/moban_index.wxml"/>
 
+	<view class="my-banner">
+		<image src="/image/my/bg1.jpg" class="imgs"></image>
+	</view>
+	<view class="my-info">
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell">
+				<view class="weui-cell__hd my-head">
+					<image src="/image/my/my_head.png"/>
+				</view>
+				<view class="weui-cell__bd">
+					<view class="my-name text-f18"   hidden="{{hiddenName}}"><navigator hover-class="none" url="/pages/member/login">登录</navigator> / <navigator hover-class="none">注册</navigator> </view>
+					<view class="my-name text-f18"  hidden="{{hiddenimg}}">欢迎：{{userLoginName}}</view>
+					<view class="my-dep text-f14">{{attr2}}</view>
+				</view>
+				<view class="weui-cell__ft weui-cell__ft_in-access"></view>
+			</view>
+			<view class="my-msg-list">
+				<view class="list-enter">
+					<navigator hover-class="none">
+						<view class="num text-orange">{{numData}}</view>
+						<view class="tit">我的待办</view>
+					</navigator>
+				</view>
+				<view class="list-enter">
+					<navigator hover-class="none">
+						<view class="num text-black">*</view>
+						<view class="tit">我的已办</view>
+					</navigator>
+				</view>
+				<view class="list-enter">
+					<navigator hover-class="none">
+						<view class="num text-black">*</view>
+						<view class="tit">最近浏览</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="my-nav ">
+		<template is="index_index_navs_tmpl" data="{{...my_index_navs_tmpl}}"/>
+	</view>
+	<view class="weui-cells weui-cells_after-title weui-cells-myset mt-10">
+		<view class="weui-cell">
+			<view class="weui-cell__hd">
+				<image src="/image/my/my-ico5.png"/>
+			</view>
+			<view class="weui-cell__bd">
+				<view>我的投诉</view>
+			</view>
+		</view>
+		<view class="weui-cell">
+			<view class="weui-cell__hd">
+				<image src="/image/my/my-ico6.png"/>
+			</view>
+			<view class="weui-cell__bd">
+				<view>版本信息</view>
+			</view>
+		</view>
+		<view class="weui-cell">
+			<view class="weui-cell__hd">
+				<image src="/image/my/my-ico7.png"/>
+			</view>
+			<view class="weui-cell__bd">
+				<view>设置</view>
+			</view>
+		</view>
+	</view>
+</view>

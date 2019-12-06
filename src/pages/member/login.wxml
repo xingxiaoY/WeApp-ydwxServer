@@ -41,7 +41,8 @@
 				<view class="weui-label text-gray">手机</view>
 			</view>
 			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入" name="tel" value="{{ form.mobile}}" type="number" maxlength="11"/>
+<!--				<input class="weui-input" placeholder="请输入" name="tel" value="{{ form.mobile}}" type="number" maxlength="11"/>-->
+				<input class="weui-input" placeholder="请输入" name="tel" value="15513459876" type="number" maxlength="11"/>
 			</view>
 		</view>
 		<!--<view class="weui-cell">

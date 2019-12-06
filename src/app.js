@@ -15,7 +15,7 @@ App({
 		systemInfo: null,
 		userInfo: null,
 		version: "1.0.0",
-		pageSize: 10,
+		pageSize: 50,
 		pageStart: 0,
 		isIphoneX: false,
 		loginUserName: 'bj_huaweijs'

@@ -37,7 +37,10 @@
   color: $graylight
 }
 .text-weight {
-  font-weight: bold
+	font-weight: bold
+}
+.text-weight-no {
+	font-weight: 400
 }
 /*按钮*/
 .btn-blue {
@@ -60,8 +63,20 @@
   background-color: $green;
   color: $white;
 }
+.btn-default {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
 .btn-link {
   background-color: transparent;
+}
+.btn-radius {
+	border-radius: 15px;
+}
+button.btn:not([size='mini']) {
+	width: auto;
+	padding: 11px 24px 5px 24px;
+	font-weight: 400;
 }
 /*背景边线*/
 .bg-blue {
@@ -134,27 +149,50 @@
 .mt-0 {
   margin-top: 0;
 }
-.mt-5 {
-  margin-top: 10rpx;
+.mt-xs {
+  margin-top: $mg-xs;
 }
-.mt-10 {
-  margin-top: 20rpx;
+.mt-sm {
+  margin-top: $mg-sm;
+}
+.mt-md {
+	margin-top: $mg-md;
+}
+.mt-lg {
+	margin-top: $mg-lg;
+}
+.mt-xl {
+	margin-top: $mg-xl;
+}
+.mt-xxl {
+	margin-top: $mg-xxl;
 }
 .pd-0 {
   padding: 0;
 }
+.dis-none {
+	display: none;
+}
 /*文字超出省略号*/
 .ellipsis-l1 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  @include ellipsisLn(1);
 }
 .ellipsis-l2 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+	@include ellipsisLn(2);
+}
+
+.app-content-toolbar {
+	margin-bottom: 65px;
+}
+.app-toolbar {
+	position: fixed;
+	padding: 5px;
+	left: 0;
+	bottom: 0;
+	background-color: $bgcolor;
+	z-index: 99;
+	@include calc-width(10px);
+	.weui-flex__item {
+		padding: 5px;
+	}
 }

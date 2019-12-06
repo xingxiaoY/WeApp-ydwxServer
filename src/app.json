@@ -4,12 +4,11 @@
         "pages/complaint/index",
         "pages/delivery/index",
         "pages/delivery/detail",
-        "pages/delivery/detail_take",
+        "pages/my/index",
         "pages/member/authorize",
         "pages/member/login",
-        "pages/order/index",
-        "pages/order/list",
-        "pages/my/index",
+        "pages/work/index",
+        "pages/work/detail",
         "pages/logs/logs"
     ],
     "window": {
@@ -52,5 +51,6 @@
         ]
     },
     "style": "v2",
+    "debug": true,
     "sitemapLocation": "sitemap.json"
 }

@@ -27,7 +27,7 @@ module.exports = {
 
 /**
  * 使用aes进行加密和解密的方法和列子
- * const CryptoJS = require('../../utils/aes_util.js');
- * console.log(CryptoJS.Encrypt("123456"),"加密~~");
- * console.log(CryptoJS.Decrypt("6TUyifP7PNWNQbvW/xPBog=="),"解密~~");
+ * const aes = require('../../utils/aes_util.js');
+ * console.log(aes.Encrypt("123456"),"加密~~");
+ * console.log(aes.Decrypt("6TUyifP7PNWNQbvW/xPBog=="),"解密~~");
  */

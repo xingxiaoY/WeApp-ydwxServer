@@ -68,7 +68,7 @@
 	display: inline-block;
 }
 .timeline-bd-left {
-	width: calc(100% - 66px);
+	@include calc-width(66px);
 }
 .timeline-bd-right {
 	width: 66px;

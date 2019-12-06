@@ -1,0 +1,139 @@
+<scroll id="scroll"
+		requesting="{{requesting}}"
+		empty-show="{{emptyShow}}"
+		end="{{end}}"
+		listCount="{{listData.length}}"
+		bottom-size="{{bottomSize}}"
+		bind:refresh="refresh"
+		bind:more="more">
+
+	<form bindsubmit="formSubmit">
+
+	<view class="app-content"><!--app-content-toolbar-->
+		<view class="app-cells-title bg-white text-weight text-black text-f16">{{projectName}}</view>
+		<view class="weui-cells weui-cells_after-title app-cells">
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">订单编号</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{poSegment1}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">订单时间</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{creationDate}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">发货单号</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{segment1}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">收货单位</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{orgName}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">收货日期</view>
+				</view>
+				<view class="weui-cell__bd text-black">
+					<input value="{{date}}" placeholder='点我选择日期' bindtap='openCalendar'/>
+
+					<!-- 组件 -->
+					<calendar
+						wx:if="{{calendarShow}}"
+						title="简单日期选择"
+						useType="touch"
+						date="{{date}}"
+						touchColor="#409efe"
+						bind:confirm="select"
+						bind:cancel="offCalendar"
+					/>
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-cells weui-cells_after-title app-cells">
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">物流公司</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{transer}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">联系人电话</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{vendorContractName}}/{{vendorContractPhone}}</view>
+			</view>
+		</view>
+
+		<view class="weui-cells weui-cells_after-title app-cells">
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">收货地址</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{rcvContractAddress}}</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<view class="weui-label text-gray">收货人电话</view>
+				</view>
+				<view class="weui-cell__bd text-black">{{rcvContractName}}/{{rcvContractPhone}}</view>
+			</view>
+		</view>
+
+		<view class="app-cells-title-mini mt-0">发货明细</view>
+
+		<view class="weui-flex delivery-detail bg-white text-center">
+			<view class="weui-flex__item">
+				<view class="placeholder text-red text-weight text-f16">{{poAmountTax}}</view>
+				<view class="placeholder text-gray">收货总金额(元)</view>
+			</view>
+			<view class="weui-flex__item">
+				<view class="placeholder text-weight text-f16">
+					<text class="text-blue">0</text> / <text>{{totalQuantity}}</text>
+				</view>
+				<view class="placeholder text-gray">收货数量</view>
+			</view>
+		</view>
+
+		<view class="delivery-goods bg-white"
+			  wx:for="{{listData}}"
+			  wx:key="{{index}}">
+
+			<view class="weui-flex">
+				<view class="weui-flex__item">
+					<view class="placeholder text-weight ellipsis-l1">{{item.description}}</view>
+				</view>
+			</view>
+			<view class="weui-flex delivery-goods-info mt-xs">
+				<view class="weui-flex__item">
+					<view class="placeholder text-graydark">物料编号：{{item.segment10}}</view>
+					<view class="placeholder text-graydark">产品数量：{{item.quantity}}</view>
+				</view>
+			</view>
+			<view class="dis-none">
+				<input name="lines[{{index}}].lineId" value="{{item.lineId}}"/>
+				<input name="lines[{{index}}].poQuantity" value="{{item.poQuantity}}"/>
+			</view>
+
+		</view>
+
+	</view>
+
+	<view class="app-toolbar">
+		<view class="weui-flex">
+			<view class="weui-flex__item"><button formType="submit" data-type='RETURN_STATE' class="weui-btn btn text-f14" size="default">退回</button></view>
+			<view class="weui-flex__item"><button formType="submit" data-type='DEFERRED_DELIVERY' class="weui-btn btn text-f14" >延期</button></view>
+			<view class="weui-flex__item"><button formType="submit" data-type='CONFIRM_RECEIPT' class="weui-btn btn btn-blue text-f14" >确认收货</button></view>
+		</view>
+	</view>
+
+	</form>
+
+</scroll>
